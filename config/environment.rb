@@ -12,5 +12,15 @@ sql = <<-SQL
   )
 SQL
 
+sql2 = <<-SQL
+  CREATE TABLE IF NOT EXISTS artists (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    age INTEGER,
+    instrument TEXT
+  )
+SQL
+
 DB[:conn].execute(sql)
+DB[:conn].execute(sql2)
 DB[:conn].results_as_hash = true

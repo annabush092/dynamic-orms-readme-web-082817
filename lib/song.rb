@@ -21,9 +21,13 @@ class Song
     column_names.compact
   end
 
-  self.column_names.each do |col_name|
-    attr_accessor col_name.to_sym
+  def self.make_accessor
+    self.column_names.each do |col_name|
+      attr_accessor col_name.to_sym
+    end
   end
+
+  self.make_accessor
 
   def initialize(options={})
     options.each do |property, value|
@@ -59,6 +63,3 @@ class Song
   end
 
 end
-
-
-
